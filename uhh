@@ -1,0 +1,3 @@
+get-ciminstance -classname win32_logicaldisk
+new-item -itemtype file -path -force
+test-path -path $Profile.alluserallhosts
