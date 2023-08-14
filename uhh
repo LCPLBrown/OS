@@ -1,3 +1,10 @@
 get-ciminstance -classname win32_logicaldisk
 new-item -itemtype file -path -force
 test-path -path $Profile.alluserallhosts
+Get-pssessionconfiguration
+Enable-PSRemoting
+Get-Childitem 'HKLM:\Software\Microsoft\Windows\NT\Currentversion\NetworkList\Profiles'
+Get-item WSMAN:\Localhost\client\TrustedHosts
+Set-Item WSMAN:\Localhost\client\TrustedHosts -Value "$var1,Server01"
+Invoke-Command -Computername File-Server {Get-Service}
+http://10.50.45.25/  stack 17
