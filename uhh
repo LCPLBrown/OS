@@ -8,3 +8,14 @@ Get-item WSMAN:\Localhost\client\TrustedHosts
 Set-Item WSMAN:\Localhost\client\TrustedHosts -Value "$var1,Server01"
 Invoke-Command -Computername File-Server {Get-Service}
 http://10.50.45.25/  stack 17
+get-process | sort -property id
+get-process | select-object name, id, description | sort -property id
+get-process smss, csss, lsass | sort id
+get-process chrome | foreach {$a} {$_.modules} 
+get-ciminstance win32_process
+get-process *chrome* | select -expandproperty modules
+get-scheduledtask | select * | select -first 1
+schtasks /query /tn "file" /v /fo list
+get-nettcpconnection -state established | more
+netstat -anob | more
+net use * http://live.sysinternals.com
