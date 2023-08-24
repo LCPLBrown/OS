@@ -19,3 +19,11 @@ schtasks /query /tn "file" /v /fo list
 get-nettcpconnection -state established | more
 netstat -anob | more
 net use * http://live.sysinternals.com
+/var/log/auth.log
+/var/log/mysgl.log
+/var/log/messages - default sysv messages
+/var/log/syslog - defualt systemd messages
+/etc/ryslog.conf -- facility: what program or part of system -- severity: how severe it is
+severity - lowest number is the worst 0-7
+/usr/sbin/ryslogd
+Get-Childitem 'C:\$RECYCLE.BIN' -Recurse -Verbose -Force | select FullName 
