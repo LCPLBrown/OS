@@ -1,4 +1,4 @@
-get-ciminstance -classname win32_logicaldisk
+-adfinegrainedpasswordpolicyget-ciminstance -classname win32_logicaldisk
 new-item -itemtype file -path -force
 test-path -path $Profile.alluserallhosts
 Get-pssessionconfiguration
@@ -28,3 +28,8 @@ severity - lowest number is the worst 0-7
 /usr/sbin/ryslogd
 Get-Childitem 'C:\$RECYCLE.BIN' -Recurse -Verbose -Force | select FullName 
 C : \ U s e r s \ s t u d e n t \ D o c u m e n t s \ 3 - 1 4 - 2 4 . t x t
+get-adfinegrainpasswordpolicy -filter {name - like "*"}
+get-adforest  get-adgroupmember -identity 'group' -recursive
+set-adaccountpassword -indentity guest -newpassword (convertto-securestring -asplaintext -string "password 123!" -force)
+new-aduser -name "bad.guy" -accountpassword (convertto-securestring -asplaintext -string "password12345!@" - force)
+enable-adaccount  add-adgroupmember  get-aduser  remove-aduser  remove-adgroupmember
