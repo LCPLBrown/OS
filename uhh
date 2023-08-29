@@ -34,3 +34,4 @@ set-adaccountpassword -indentity guest -newpassword (convertto-securestring -asp
 new-aduser -name "bad.guy" -accountpassword (convertto-securestring -asplaintext -string "password12345!@" - force)
 enable-adaccount  add-adgroupmember  get-aduser  remove-aduser  remove-adgroupmember
 gpresult /user administrator /v
+volatile -non-persistent : non-volatile -persistent
